@@ -90,11 +90,13 @@ Should return something like that:
 '''
 def test_to_json(all_stocks_df):
   json_loaded = json.loads(to_json(all_stocks_df))
+  assert json_loaded
 
 ''' Export all stocks to json file located in /tmp/{filename} '''
 def test_export_to_json(export_to_json_file):
   with open(f'{app.tmp_path}/{export_to_json_file}') as f:
     json_loaded = json.loads(f.read())
+    assert json_loaded
 
 ''' Should return something like that:
   index;papel;cotacao;p_l;p_vp;psr;divyield;p_ativo;p_capgiro;p_ebit;p_ativ_circliq;ev_ebit;ev_ebitda;mrg_ebit;mrg_liq;liq_corr;roic;roe;liq2meses;patrim_liq;divbrut_patrim;cresc_rec5a

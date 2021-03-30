@@ -1,6 +1,5 @@
 from src import app
 import json
-import pandas as pd
 
 def to_csv(df, filename: str = '', separator: str = ';', export: bool=False) -> str:
   if not filename:

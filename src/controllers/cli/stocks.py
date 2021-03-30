@@ -6,10 +6,7 @@ from src.helpers.reports import to_csv, to_json
 from src import app
 
 @BaseCli.register
-class Stocks():
-  def __init__(self):
-    pass
-  
+class Stocks():  
   def get_all(args):
     command = GetAll()
     try:
@@ -18,13 +15,16 @@ class Stocks():
       if args.export_csv:
         csv_file = to_csv(df, separator=";", export=True)
         print(f'Your csv file is available in {app.tmp_path}/{csv_file}')
+        return csv_file
       
       if args.export_json:
         json_file = to_json(df, export=True)
         print(f'Your json file is available in {app.tmp_path}/{json_file}')
+        return json_file
 
       if not args.export_csv and not args.export_json:
         print(df)
+        return df
     except Exception as e:
       # print(e)
       return None
@@ -36,14 +36,17 @@ class Stocks():
       if args.export_csv:
         csv_file = to_csv(df, separator=";", export=True)
         print(f'Your csv file is available in {app.tmp_path}/{csv_file}')
+        return csv_file
 
       
       if args.export_json:
         json_file = to_json(df, export=True)
         print(f'Your json file is available in {app.tmp_path}/{json_file}')
+        return json_file
 
       if not args.export_csv and not args.export_json:
         print(df)
+        return df
     except Exception as e:
       # print(e)
       return None

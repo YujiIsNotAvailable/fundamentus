@@ -1,5 +1,6 @@
 from src.commands import factory
 import argparse
+import inspect
 import os
 import importlib
 from stringcase import pascalcase
@@ -13,7 +14,7 @@ if __name__ == '__main__':
       module = f'src.controllers.cli.{filename[:-3]}'
       cliFile = importlib.import_module(module)
       cliController = getattr(cliFile, pascalcase(filename[:-3]))
-      if not issubclass(cliController, BaseCli):
+      if inspect.isabstract(cliController) or not issubclass(cliController, BaseCli): 
         continue
       cliController.register_argument_parser(parser) # Register all arguments 
     except Exception as e:
