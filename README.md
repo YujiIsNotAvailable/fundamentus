@@ -1,19 +1,19 @@
-# Fundamentus python library #
+# Fundamentus python library
 
-## Requirements ##
+## Requirements
 Install dependences
 ```sh
 cd fundamentus
 pip install -r ./requirements.txt
 ```
 
-## Run tests ##
+## Run tests
 ```sh
 python -m pytest
 ```
 
-# CLI #
-## Usage ##
+# CLI
+## Usage
 ```sh
   # Returns a dataframe like that:
   '''
@@ -42,5 +42,5 @@ python -m pytest
 ```
 
 ___
-##~~WEB~~
+## ~~WEB~~ 
 under development..:grinning::grinning::grinning:
